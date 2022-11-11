@@ -1,5 +1,7 @@
 package com.yedam.java.ch0604;
 
+import com.yedam.java.실습.Computer;
+
 public class MainExample {
 
 	public static void main(String[] args) {
