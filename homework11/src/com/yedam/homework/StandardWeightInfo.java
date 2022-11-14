@@ -8,7 +8,9 @@ public class StandardWeightInfo extends Human {
 	
 	public StandardWeightInfo(String name, int hi, int we) {
 		super(name, hi, we); //부모생성자
-		
+		this.name = name;
+		this.hi = hi;
+		this.we = we;
 	}
 	
 
@@ -18,7 +20,6 @@ public class StandardWeightInfo extends Human {
 		System.out.println("표준체중 : " );
 	}
 	
-
 	public double getStandardWeight() {
 		double result = double((hi-100)*0.9);
 				

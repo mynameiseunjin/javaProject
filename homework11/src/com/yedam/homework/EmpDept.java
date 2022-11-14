@@ -24,7 +24,7 @@ public class EmpDept extends Employee {
 		System.out.println("부서: " + part);
 	}
 	@Override
-	public void () {
+	public void print () {
 		
 		//super.print();
 		System.out.println("수퍼클래스\n서브클래스");
