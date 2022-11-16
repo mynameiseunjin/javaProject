@@ -22,7 +22,8 @@ public class Turnup {
 
 		String subject = "1a2v4b";
 
-		int index = subject.indexOf("1a2v4b");
+		int cnt = 0;
+		for
 
 		System.out.println(index);
 
