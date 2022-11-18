@@ -25,13 +25,13 @@ public class MembersDAO extends DAO {
 		Member loginInfo = null;
 		try {
 			connect();
-			String sql = "SELECT * FROM members WHERE member_id = '" + member.getMemberId() + "'";
+			String sql = "SELECT * FROM members WHERE men_id = '" + member.getMembermId() + "'";
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 
 			if (rs.next()) {
 				// 아이디 존재
-				if (rs.getString("member_password").equals(member.getMemberPassword())) {
+				if (rs.getString("men_pw").equals(member.getMemberPassword())) {
 					// 비밀번호 일치
 					// -> 로그인 성공
 					loginInfo = new Member();

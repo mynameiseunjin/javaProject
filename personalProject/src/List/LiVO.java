@@ -1,4 +1,4 @@
-package com.yedam.app.mem;
+package List;
 
 public class LiVO {
 private String Li_num;

@@ -1,4 +1,4 @@
-package com.yedam.app.mem;
+package Course;
 
 public class CoVO {
 

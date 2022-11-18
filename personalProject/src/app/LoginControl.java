@@ -1,22 +1,25 @@
 package app;
 
-import java.lang.reflect.Member;
+
 import java.util.Scanner;
 
-//매니저 객체
 import com.yedam.app.mem.MemDAO;
 import com.yedam.app.mem.MemDAOImpl;
+import com.yedam.app.mem.MemManagement;
+import com.yedam.app.mem.MemVO;
+
 
 //생성자
-public class MemManagement {
+public class LoginControl {
 	Scanner sc = new Scanner(System.in);
-	private static Member loginInfo = null;
+	MemDAO memDAO = MemDAOImpl.getInstance();
+	private static MemVO loginInfo = null;
 
-	public static Member getLoginInfo() {
+	public static MemVO getLoginInfo() {
 		return loginInfo;
 	}
 
-	public MemManagement() {
+	public LoginControl() {
 		while (true) {
 			menuPrint();
 			int menuNo = menuSelect();
@@ -50,28 +53,44 @@ public class MemManagement {
 		return menuNo;
 	}
 	
+	//
+	private void LoginControl() {
+		
+	}
+	
+	
+
 	private void exit() {
 		System.out.println("프로그램을 종료합니다.");
 	}
-	
+
 	private void showInputError() {
 		System.out.println("메뉴를 다시 확인하세요.");
 	}
-	
+
 	private void login() {
-		//아이디 비번 입력
-		Member inputInfo = inputMember();
-		//로그인 시도
-		LoginInfo = 
+		// 아이디 비번 입력
+		MemVO inputInfo = inputMember();
+		// 로그인 시도
+		loginInfo = memDAO.loginInfo(inputInfo);
+
+		// 로그인 실패할 경우 그대로 메소드 종료함.
+		if (loginInfo == null)
+			return;
+
+		// 로그인에 성공할 경우 프로그램 실행 ->실행프로그램 만들기!!
+		//new MemDAOImpl().run();
+		System.out.println("로그인 완료.");
+		new MemManagement().menuPrint(); // 메뉴 연동
 	}
 
-	private Member inputMember() {
-		// TODO Auto-generated method stub
-		return null;
+	private MemVO inputMember() {
+		MemVO info = new MemVO();
+		System.out.println("아이디를 입력하세요 > ");
+		info.setMan_id(sc.nextLine());
+		System.out.println("비밀번호를 입력하세요 >");
+		info.setMan_pw(sc.nextLine());
+		return info;
 	}
-	
-	
-	
-	
 
 }

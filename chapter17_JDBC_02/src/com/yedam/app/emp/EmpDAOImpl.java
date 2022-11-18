@@ -111,7 +111,7 @@ public class EmpDAOImpl extends DAO implements EmpDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, empVO.getFirstName());
 			pstmt.setString(2, empVO.getEmpNo());
-			pstmt.setString(2, empVO.getEmpNo());
+			
 
 			int result = pstmt.executeUpdate();
 
